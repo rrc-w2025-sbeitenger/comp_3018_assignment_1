@@ -10,7 +10,7 @@ const app: Express = express();
 interface healthCheckResponse {
     status: String;
     uptime: Number;
-    timestamp: String;
+    timestamp: string;
     version: String;
 }
 
