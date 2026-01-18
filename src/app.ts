@@ -11,7 +11,7 @@ interface healthCheckResponse {
     status: String;
     uptime: Number;
     timestamp: string;
-    version: String;
+    version: string;
 }
 
 //Define a route.
