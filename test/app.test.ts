@@ -4,7 +4,7 @@ import app from "../src/app";
 describe("GET /src/api/v1/routes", () => {
     it("should return OK status", async () => {
         //act
-        const response = await request(app).get("/src/api/v1/routes");
+        const response: Response = await request(app).get("/src/api/v1/routes");
 
         //assert
         expect(response.body.status).toBe("OK");
@@ -12,7 +12,7 @@ describe("GET /src/api/v1/routes", () => {
 
     it("should return a JSON response with correct fields", async () => {
         //act
-        const response = await request(app).get("/src/api/v1/routes");
+        const response: Response = await request(app).get("/src/api/v1/routes");
 
         //assert
         expect(response.body).toHaveProperty("status");
