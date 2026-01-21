@@ -8,10 +8,10 @@ const app: Express = express();
 * Represents the response structure for the health check endpoint.
 */
 interface healthCheckResponse {
-    status: String;
-    uptime: Number;
-    timestamp: String;
-    version: String;
+    status: string;
+    uptime: number;
+    timestamp: string;
+    version: string;
 }
 
 //Define a route.
