@@ -8,15 +8,15 @@ const app: Express = express();
 * Represents the response structure for the health check endpoint.
 */
 interface healthCheckResponse {
-    status: String;
-    uptime: Number;
-    timestamp: String;
-    version: String;
+    status: string;
+    uptime: number;
+    timestamp: string;
+    version: string;
 }
 
 //Define a route.
 //Request object receives information from the client, response object is what the api sends back.
-app.get("/src/api/v1/routes", (req, res) => {
+app.get("/api/v1/routes", (req, res) => {
     //response object that matches our healthCheckResponse interface.
     const healthData: healthCheckResponse = {
         status: "OK",
