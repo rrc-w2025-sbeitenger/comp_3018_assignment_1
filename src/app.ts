@@ -16,7 +16,7 @@ interface healthCheckResponse {
 
 //Define a route.
 //Request object receives information from the client, response object is what the api sends back.
-app.get("/src/api/v1/routes", (req, res) => {
+app.get("/api/v1/routes", (req, res) => {
     //response object that matches our healthCheckResponse interface.
     const healthData: healthCheckResponse = {
         status: "OK",
