@@ -1,4 +1,5 @@
 import express, {Express} from "express";
+import { calculatePortfolioPerformance } from "./portfolio/portfolioPerformance";
 
 //Initialize Express application, configuring the app before it starts.
 //Express prevents endpoints from not sending a response object back. Since all endpoints must reply back.
@@ -14,6 +15,17 @@ interface healthCheckResponse {
     version: string;
 }
 
+/*
+* Represents the response structure for portfolio investment endpoint.
+*/
+export interface investment {
+    initialInvestment: number;
+    currentValue: number;
+    profitOrLoss: number;
+    percentageChange: number;
+    performanceSummary: string;
+}
+
 //Define a route.
 //Request object receives information from the client, response object is what the api sends back.
 app.get("/api/v1/routes", (req, res) => {
@@ -27,6 +39,17 @@ app.get("/api/v1/routes", (req, res) => {
 
     res.json(healthData);
 });
+
+app.get("/api/v1/portfolio/performance", (req, res) => {
+    //performance?initialInvestment=10000&currentValue=11000
+    let investment = Number(req.query.initialInvestment);
+    let value = Number(req.query.currentValue);
+
+    let investmentPortfolio = calculatePortfolioPerformance(investment, value);
+
+    res.json(investmentPortfolio);
+});
+
 
 //export app to use within server.ts.
 export default app;
