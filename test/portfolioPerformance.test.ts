@@ -1,3 +1,4 @@
+import { investment } from "src/app";
 import { calculatePortfolioPerformance } from "../src/portfolio/portfolioPerformance";
 
 //unit tests
@@ -8,7 +9,7 @@ describe("GET /api/v1/portfolio/performance", () => {
         const currentValue: number = 16000;
 
         //act.
-        const actualData = calculatePortfolioPerformance(initialInvestment, currentValue);
+        const actualData: investment = calculatePortfolioPerformance(initialInvestment, currentValue);
 
         //assert.
         expect(actualData.initialInvestment).toBe(10000);
@@ -27,7 +28,7 @@ describe("GET /api/v1/portfolio/performance", () => {
         const currentValue: number = 11000;
 
         //act.
-        const actualData = calculatePortfolioPerformance(initialInvestment, currentValue);
+        const actualData: investment = calculatePortfolioPerformance(initialInvestment, currentValue);
 
         //assert.
         expect(actualData.initialInvestment).toBe(10000);
@@ -45,7 +46,7 @@ describe("GET /api/v1/portfolio/performance", () => {
         const currentValue: number = 10999.9;
 
         //act.
-        const actualData = calculatePortfolioPerformance(initialInvestment, currentValue);
+        const actualData: investment = calculatePortfolioPerformance(initialInvestment, currentValue);
 
         //assert.
         expect(actualData.initialInvestment).toBe(10000);
@@ -63,7 +64,7 @@ describe("GET /api/v1/portfolio/performance", () => {
         const currentValue: number = 8999.9;
 
         //act.
-        const actualData = calculatePortfolioPerformance(initialInvestment, currentValue);
+        const actualData: investment = calculatePortfolioPerformance(initialInvestment, currentValue);
 
         //assert.
         expect(actualData.initialInvestment).toBe(10000);

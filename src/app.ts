@@ -51,15 +51,15 @@ app.get("/api/v1/health", (req, res) => {
 */
 app.get("/api/v1/portfolio/performance", (req, res) => {
     //performance?initialInvestment=10000&currentValue=11000
-    let investment = Number(req.query.initialInvestment);
-    let value = Number(req.query.currentValue);
+    const investment: number = Number(req.query.initialInvestment);
+    const value: number = Number(req.query.currentValue);
     
     if (!investment || !value){
         res.status(400).send(`Missing 'initial investment' or 'current value' query parameters.`);
         return;
     }
 
-    let investmentPortfolio = calculatePortfolioPerformance(investment, value);
+    const investmentPortfolio: investment = calculatePortfolioPerformance(investment, value);
 
     res.json(investmentPortfolio);
 });

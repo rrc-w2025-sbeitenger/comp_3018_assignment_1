@@ -7,9 +7,9 @@ import { investment } from "src/app";
 * @returns object of investment interface/type.
 */
 export function calculatePortfolioPerformance(initialInvestment :number, currentValue:number): investment {
-    const profitOrLoss = currentValue - initialInvestment ;
+    const profitOrLoss: number = currentValue - initialInvestment ;
 
-    const percentageChange = (profitOrLoss / initialInvestment) * 100;
+    const percentageChange: number = (profitOrLoss / initialInvestment) * 100;
 
     //Above 30 excellent. Below 30 solid gain. Below 10 modest gain.
     //Zero no change. Bellow 0 until -10 is minor loss. Bellow -10 is significant loss.
