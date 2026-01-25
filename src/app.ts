@@ -28,7 +28,7 @@ export interface investment {
 
 //Define a route.
 //Request object receives information from the client, response object is what the api sends back.
-app.get("/api/v1/routes", (req, res) => {
+app.get("/api/v1/health", (req, res) => {
     //response object that matches our healthCheckResponse interface.
     const healthData: healthCheckResponse = {
         status: "OK",
@@ -49,7 +49,6 @@ app.get("/api/v1/portfolio/performance", (req, res) => {
 
     res.json(investmentPortfolio);
 });
-
 
 //export app to use within server.ts.
 export default app;
