@@ -26,7 +26,10 @@ export interface investment {
     performanceSummary: string;
 }
 
-//Define a route.
+/*
+* endpoint that checks server health.
+* @response json of healthData.
+*/
 //Request object receives information from the client, response object is what the api sends back.
 app.get("/api/v1/health", (req, res) => {
     //response object that matches our healthCheckResponse interface.
@@ -40,6 +43,12 @@ app.get("/api/v1/health", (req, res) => {
     res.json(healthData);
 });
 
+/*
+* endpoint that calculates portfolio performance from given params.
+* @param - initialInvestment (number) - The starting investment value.
+* @param - currentValue (number) - The current return on investment value.
+* @response - json containing the full investment performance calculations.
+*/
 app.get("/api/v1/portfolio/performance", (req, res) => {
     //performance?initialInvestment=10000&currentValue=11000
     let investment = Number(req.query.initialInvestment);
@@ -50,5 +59,4 @@ app.get("/api/v1/portfolio/performance", (req, res) => {
     res.json(investmentPortfolio);
 });
 
-//export app to use within server.ts.
 export default app;

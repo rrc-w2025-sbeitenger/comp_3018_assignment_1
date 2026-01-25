@@ -1,6 +1,11 @@
 import { investment } from "src/app";
 
-//function expects a return following the interface investment.
+/*
+* Calculates the return on investment for the portfolio performance.
+* @param initialInvestment (number) - The starting investment value.
+* @param currentValue (number) - The current return on investment value.
+* @returns object of investment interface/type.
+*/
 export function calculatePortfolioPerformance(initialInvestment :number, currentValue:number): investment {
     const profitOrLoss = currentValue - initialInvestment ;
 
