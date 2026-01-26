@@ -2,7 +2,7 @@ import { investment } from "src/app";
 import { calculatePortfolioPerformance } from "../src/portfolio/portfolioPerformance";
 
 //unit tests
-describe("GET /api/v1/portfolio/performance", () => {
+describe("Calculate the portfolio performance function for above 30 percentage", () => {
     it("should return portfolio performance information, with 'Excellent Performance!' message", async () => {
         //arrange.
         const initialInvestment: number = 10000;
@@ -17,12 +17,11 @@ describe("GET /api/v1/portfolio/performance", () => {
         expect(actualData.profitOrLoss).toBe(6000);
         expect(actualData.percentageChange).toBe(60);
         expect(actualData.performanceSummary).toBe("Excellent Performance! Your investments are doing great.");
-
     });
 });
 
-describe("GET /api/v1/portfolio/performance", () => {
-    it("should return portfolio performance information, with 'Solid gain' message", async () => {
+describe("Calculate the portfolio performance function for below 30 percentage", () => {
+    it("should return portfolio performance object, with message of 'Solid gain'", async () => {
         //arrange.
         const initialInvestment: number = 10000;
         const currentValue: number = 11000;
@@ -39,8 +38,8 @@ describe("GET /api/v1/portfolio/performance", () => {
     });
 });
 
-describe("GET /api/v1/portfolio/performance", () => {
-    it("should return portfolio performance information, with 'Modest gain' message", async () => {
+describe("Calculate the portfolio performance function for below 10 percentage", () => {
+    it("should return portfolio performance object, with a message of 'Modest gain'", async () => {
         //arrange.
         const initialInvestment: number = 10000;
         const currentValue: number = 10999.9;
@@ -57,8 +56,8 @@ describe("GET /api/v1/portfolio/performance", () => {
     });
 });
 
-describe("GET /api/v1/portfolio/performance", () => {
-    it("should return portfolio performance information, with 'Significant Loss' message", async () => {
+describe("Calculate the portfolio performance function for below -10", () => {
+    it("should return portfolio performance information, with a message of 'Significant Loss'", async () => {
         //arrange.
         const initialInvestment: number = 10000;
         const currentValue: number = 8999.9;
